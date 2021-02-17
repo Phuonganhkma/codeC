@@ -1,37 +1,34 @@
-/*nhap so nguyen n la canh ke cuar tam giac vuong can.
-in ra hinh tam giac do co dang
-1
-01
-101
-0101
-10101*/
+//tính tổng lẻ: s= 1+3+5+…+(2*n+1) ( n là số nguyên dwong nhập từ bàn phím)
 #include<stdio.h>
+/*int kiemTraSoLe(int n)
+{
+    if(n%2==0)
+        return 0;
+    return 1;
+}
 int main()
 {
-    int n;
+    int n,s=0;
     printf("nhap n= ");
     scanf("%d",&n);
     for(int i=1;i<=n;i++)
     {
-
-        for(int j=1;j<=i;j++)
-        {
-            if(i%2==0)
-            {
-                if(j%2==0)
-                    printf("1");
-                else printf("0");
-            }
-            else{
-                if(j%2==0)
-                    printf("0");
-                else printf("1");
-            }
-
-        }
-
-printf("\n");
+        if(kiemTraSoLe(i))
+            s+=i;
+    }
+    printf("tong cac so le la S= %d",s);
+    return 0;
+}*/
+int main()
+{
+    int n,s=0;
+    printf("nhap n= ");
+    scanf("%d",&n);
+    for(int i=0;i<=n;i++)
+    {
+        s+=(2*i+1);
 
     }
+    printf("tong cac so le la S= %d",s);
     return 0;
 }

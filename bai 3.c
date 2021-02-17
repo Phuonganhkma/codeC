@@ -1,51 +1,87 @@
 
-/*Bài 3: Viết chương trình thực hiện các yêu cầu sau: (DÙNG HÀM)
-a. Xây dựng hàm kiểm tra một số có phải là số nguyên tố không.
-Áp dụng, nhập vào từ bàn phím số nguyên dươngn, in ra màn hình các số
-nguyên tố nhỏ hơn hoặc bằng n.
-- Viết chương trình con (hàm): kiểm tra số nguyên tố:
-- Trong main: in các số nguyên tố từ 1-n*/
-#include<stdio.h>
-#include<math.h>
-int kiemtra(int n)
-{
-    if(n<2) return 0;
-    if(n==2) return 1;
-    if(n>2)
-    {
-    int  i;
-    for(i=2;i<=sqrt(n);i++)
-    {
-        if(n%i==0)
-            return 0;
-    }
-    return 1;
-}
-}
-void  inso(int n)
-{
-    if(n<=2)
-        printf("khong so nguyen to nho hon %d",n);
-    else
-    {
+/*Cho một số nguyên và một mảng một chiều các số nguyên. Kiểm tra xem số nguyên đã cho xuất hiện trong mảng mấy lần, ở những vị trí nào.
 
-        printf("so cac so nguyen to nho hon %d la: ",n);
-        for(int i=2;i<n;i++){
-           if(kiemtra(i)==1)
-            printf("%d\t",i);
+Input
+Dòng 1: n - số lượng phần tử trong mảng, n<500
+Dòng 2: n số nguyên trong khoảng [-100, 100]
+Dòng 3: a - một số nguyên trong khoảng [-100, 100]
+
+Output
+Số lần xuất hiện số nguyên a trong mảng đã cho và các vị trí (nếu có) mà a xuất hiện.
+Lưu ý: chỉ số mảng tính từ 0.
+
+VD1
+8
+32 -80 -47 10 -38 64 -6 64
+64
+
+Output:
+The value 64 appears 2 time(s)
+At the following position(s): 5 7
+
+VD2
+Input:
+8
+32 -80 -47 10 -38 64 -6 64
+90
+Output:
+The value 90 does not exist in the given array
+*/
+#include<stdio.h>
+#define Max 100
+void nhapMang(int a[], int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        printf("a[%d]= ",i);
+        scanf("%d",&a[i]);
+    }
+}
+void xuatMang(int a[], int n)
+{
+    for(int i=0; i<n;i++)
+        {
+        printf("%d  ",a[i]);
+        }
+     printf("\n");
+}
+int  demPhanTu(int a[], int n, int dem, int c)
+{
+    dem=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==c)
+            dem++;
+    }
+    return dem;
+}
+void viTriXuatHien(int a[], int n,int c,int v)
+{
+    printf("vi tri xuat hien cua %d la  ",c);
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==c){
+            v=i;
+            printf("%d\t",v);
+            return;
         }
     }
-}
 
+            printf("%d khong co trong mang ",c);
+
+
+}
 int main()
 {
-    int n;
-    printf("nhap n:");
+    int n, dem ,c, v;
+    int a[Max];
+    printf("nhap so luong phan tu mang ");
     scanf("%d",&n);
-    if(kiemtra(n)==1)
-        printf("%d la so nguyen to\n",n);
-    else
-        printf("%d khong la so nguyen to\n",n);
-    inso(n);
+    nhapMang(a,n);
+    xuatMang(a,n);
+    printf("nhap phan tu c:");
+    scanf("%d",&c);
+    printf("so lan xuat hien %d la %d\n",c,demPhanTu(a,n,dem,c));
+    viTriXuatHien(a,n,c,v);
     return 0;
 }
