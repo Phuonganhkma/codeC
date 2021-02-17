@@ -1,13 +1,19 @@
-/* liet ke so co hai chu so sao cho so do gap hai lan tong cac chu so tao nen no*/
+/*Câu 7: Viết chương trình nhập vào số nguyên n,x. tính biểu thức
+Q=10+e^x +e^2x +e^3x +….+e^nx
+In kết quả*/
 #include<stdio.h>
 #include<math.h>
 int main()
 {
-    for(int ab=10;ab<100;ab++)
+    int n,x;
+    float q=10;
+    float e=2.718281828;
+    printf("nhap n,x= ");
+    scanf("%d %d",&n,&x);
+    for(int i=1;i<=n;i++)
     {
-        if(ab==2*(ab%10+ab/10))
-            printf("%d",ab);
+       q+=pow(e,i*x);
     }
+    printf("Q=%f",q);
     return 0;
-
 }

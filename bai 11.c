@@ -1,23 +1,22 @@
-/* nhap so nguyen n kiem tra n co phai so nguyen to hay khong*/
-#include<stdio.h>
-#include<math.h>
 
+//Nhập vào số nguyên n. tính tổng các số chẵn trong khoảng từ 1 đến n
+#include<stdio.h>
+int kiemTraSoChan(int n)
+{
+    if(n%2==0)
+        return 1;
+    return 0;
+}
 int main()
 {
-    int n;
-    printf(" nhap n\n");
+    int n,s=0;
+    printf("nhap n= ");
     scanf("%d",&n);
-    if(n<2)
-        printf("%d khong phai la so nguyen to",n);
-    else if(n==2)
-        printf("2 la so nghuyen to");
-    else{
-    for(int i=3;i<sqrt(n);i++){
-        if(n%i==2)
-            printf("%d khong phai la so nguyen to",n);
-        else
-            printf("%d la so nguyen to",n);
-}
-}
-return 0;
+    for (int i=1;i<=n;i++)
+    {
+        if(kiemTraSoChan(i))
+            s+=i;
+    }
+        printf("tong cac so chan la: %d",s);
+        return 0;
 }

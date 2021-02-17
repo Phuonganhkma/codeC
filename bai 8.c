@@ -1,13 +1,23 @@
-/*liet ke so n dang n=abc sao cho n=a^3+b^3+c^3*/
+/*Câu 8: viết chương trình nhập vào số nguyên n. tính
+A=1*2+2*3+…+n*(n+1)
+In kết quả*/
 #include<stdio.h>
-int main()
+int main ()
 {
-    for(int n=100;n<999;n++)
-        {
-            if (n==(n/100)*(n/100)*(n/100)+((n/10)%10)*((n/10)%10)*((n/10)%10)+(n%10)*(n%10)*(n%10)){
-            printf("%d\n",n);
-            }
+    int n,A=0;
+    printf("nhap n= ");
+    scanf("%d",&n);
+    if(n<0)
+    {
+        printf("nhap lai n\n");
+    }
+    else
+    {
+        for(int i=1;i<=n;i++){
+        A+=(i*(i+1));
         }
-        return 0;
+        printf("A= %d",A);
+    }
+    return 0;
 
 }
